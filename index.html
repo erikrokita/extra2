@@ -1,0 +1,75 @@
+<html> <!--this program demonstrates the usage of data types, functions, loops, data structures-->
+	<head>
+		<title>extra 2</title>
+		<link rel="stylesheet" type="text/css" href="extra2.css">	<!--links css file-->
+	</head>
+	<body>
+		<div id="calculator-container">
+			<div id="output">
+				0
+			</div>
+			<div id="calculator-buttons">
+				<table>
+					<tr>
+						<td><input onClick="entryAdd('(')" id="oprLPara" class="opr" type="button" value="(" /></td>
+						<td><input onClick="entryAdd(')')" id="oprRPara" class="opr" type="button" value=")" /></td>
+						<td><input onClick="entryAdd('%')" id="oprMod" class="opr" type="button" value="%" /></td>
+						<td><input onClick="entryAdd('+')" id="" class="oprAdd" type="button" value="+" /></td>
+					</tr>
+					<tr>
+						<td><input onClick="entryAdd(7)" id="num7" class="num" type="button" value="7" /></td>
+						<td><input onClick="entryAdd(8)" id="num8" class="num" type="button" value="8" /></td>
+						<td><input onClick="entryAdd(9)" id="num9" class="num" type="button" value="9" /></td>
+						<td><input onClick="entryAdd('-')" id="oprSub" class="opr" type="button" value="-" /></td>
+					</tr>
+					<tr>
+						<td><input onClick="entryAdd(4)" id="num4" class="num" type="button" value="4" /></td>
+						<td><input onClick="entryAdd(5)" id="num5" class="num" type="button" value="5" /></td>
+						<td><input onClick="entryAdd(6)" id="num6" class="num" type="button" value="6" /></td>
+						<td><input onClick="entryAdd('/')" id="oprDiv" class="opr" type="button" value="/" /></td>
+					</tr>
+					<tr>
+						<td><input onClick="entryAdd(1)" id="num1" class="num" type="button" value="1" /></td>
+						<td><input onClick="entryAdd(2)" id="num2" class="num" type="button" value="2" /></td>
+						<td><input onClick="entryAdd(3)" id="num3" class="num" type="button" value="3" /></td>
+						<td><input onClick="entryAdd('*')" id="oprMul" class="opr" type="button" value="x" /></td>
+					</tr>
+					<tr>
+						<td><input id="clear" type="button" value="c" /></td>
+						<td><input onClick="entryAdd(0)" id="num0" class="num" type="button" value="0" /></td>
+						<td><input onClick="entryAdd('.')" id="dot" class="" type="button" value="." /></td>
+						<td><input id="equal" class="opr" type="button" value="=" /></td>
+					</tr>
+				</table>
+			</div>
+		<div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	<!--links jquery-->
+		<script>
+			
+			//clear calculator
+			$("#clear").click(function(){
+				$("#output").html("0");
+			});
+			
+			//add entries to the output bar
+			function entryAdd(val){
+				if ($("#output").html() == "0" && val != "."){
+					$("#output").html(val);
+				}else{
+					$("#output").append(val);
+				}
+			}
+			
+			//calculate and send output
+			$("#equal").click(function(){
+				var output;
+				output = document.getElementById("output").innerHTML;
+				console.log("equasion is: " + output);
+				$("#output").html(eval(output));
+				console.log("computed output is: " + eval(output));
+			});
+			
+		</script>
+	</body>
+</html>
